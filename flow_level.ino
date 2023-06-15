@@ -22,12 +22,29 @@ void loop() {
   Serial.print("Water level: ");
   Serial.println(level);
   
-  if(level>100){
+  if(level>250){
     digitalWrite(2,HIGH);
     digitalWrite(3,HIGH);
     digitalWrite(4,HIGH);
   }
-  delay(1000);
+//   delay(1000);
+  else if(level>100 && level<=250){
+    digitalWrite(2,HIGH);
+    digitalWrite(3,HIGH);
+    digitalWrite(4,LOW);
+
+  }
+  else if(level<=100){
+    digitalWrite(2,HIGH);
+    digitalWrite(3,LOW);
+    digitalWrite(4,LOW);
+  }
+  else{
+    digitalWrite(2,LOW);
+    digitalWrite(3,LOW);
+    digitalWrite(4,LOW);
+
+  }
 }
 
 //This is a function used to get the reading
